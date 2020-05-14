@@ -30,22 +30,21 @@ export const getProfile= ()=> async dispatch=>{
 //Get profiles by id
 
 
-export const getProfileById= (userId)=> async dispatch=>{
-    try {
-        const res = await axios.get(`/api/profile/${userId}`);
-        dispatch({
-            type:GET_PROFILE,
-            payload:res.data
-        })
-    } catch (error) {
-        dispatch({
-            type:PROFILE_ERROR,
-            payload:{msg:error.response.statusText,
-            status:error.response.status
-            }
-        })
-    }
-}
+export const getProfileById = userId => async dispatch => {
+  try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
 
 //Get all profiles
 
