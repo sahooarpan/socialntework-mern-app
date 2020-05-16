@@ -2,19 +2,22 @@ import React,{Fragment} from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
+
 import { logout } from '../../actions/auth' 
-const Navbar = ({auth:{isAuthenticated,loading},logout}) =>  {
+const Navbar = ({auth:{isAuthenticated,loading,user},logout}) =>  {
   
   const authLinks = (
     <ul>
-      
+      <li>
+        <Link to='/posts'>Posts</Link>
+      </li>
       <li>
         <Link to='/developers'>Developers</Link>
       </li>
       <li>
         <Link to='/dashboard'>
           <i className='fas fa-user' />{' '}
-          <span className='hide-sm'>Dashboard</span>
+  <span className='hide-sm'>{user && user.name}</span>
         </Link>
       </li>
        <li>

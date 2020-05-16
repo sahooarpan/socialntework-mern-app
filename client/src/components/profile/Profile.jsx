@@ -21,7 +21,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <Link to="/profiles" className="btn btn-light">
+          <Link to="/developers" className="btn btn-light">
             Back To Profiles
           </Link>
           {auth.isAuthenticated &&
@@ -66,9 +66,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
               )}
             </div>
 
-            {profile.githubusername && (
-              <ProfileGithub username={profile.githubusername} />
-            )}
+            
           </div>
         </Fragment>
       )}
